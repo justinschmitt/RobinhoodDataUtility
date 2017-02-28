@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="Robinhood Data Utility" Height="350" Width="310" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Grid Margin="0,0,0,0">
-        <PasswordBox x:Name="pbPassword" HorizontalAlignment="Left" Margin="81,43,0,0" VerticalAlignment="Top" Width="120" Height="20"/>
-        <TextBox x:Name="tbUsername" HorizontalAlignment="Left" Height="20" Margin="81,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox x:Name="pbPassword" HorizontalAlignment="Left" Margin="81,43,0,0" VerticalAlignment="Top" Width="120" Height="20" KeyboardNavigation.TabIndex="1"/>
+        <TextBox x:Name="tbUsername" HorizontalAlignment="Left" Height="20" Margin="81,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyboardNavigation.TabIndex="0"/>
         <Label x:Name="lblUsername" Content="Username:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="29"/>
         <Label x:Name="lblPassword" Content="Password:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,39,0,0" Height="29"/>
-        <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="215,43,0,0" VerticalAlignment="Top" Width="75" Click="btnLogin_Click"/>
+        <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="215,43,0,0" VerticalAlignment="Top" Width="75" Click="btnLogin_Click" KeyboardNavigation.TabIndex="2" KeyboardNavigation.AcceptsReturn="True"/>
         <Label x:Name="lblStatus" Content="Please Login" HorizontalAlignment="Left" Margin="0,73,0,0" VerticalAlignment="Top" Width="300" FontSize="10" BorderThickness="1" Background="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"/>
-        <Button x:Name="btnExportOrders" Content="Export Orders" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="100" Click="btnExportOrders_Click"/>
+        <Button x:Name="btnExportOrders" Content="Export Orders" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="100" Click="btnExportOrders_Click" KeyboardNavigation.TabIndex="3"/>
 
     </Grid>
 </Window>
