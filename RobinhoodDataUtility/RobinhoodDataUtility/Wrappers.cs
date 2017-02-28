@@ -52,7 +52,7 @@ namespace RobinhoodDataUtility
             public string quantity { get; set; }
         }
 
-        public class Example
+        public class Orders
         {
             public object previous { get; set; }
             public IList<Result> results { get; set; }
