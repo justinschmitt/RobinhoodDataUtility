@@ -57,7 +57,7 @@ namespace RobinhoodDataUtility
                 {
                     var jss = new JavaScriptSerializer();
 
-                    Wrappers.ApiTokenAuth auth = jss.Deserialize<Wrappers.ApiTokenAuth>(responseContent);
+                    ApiTokenAuth auth = jss.Deserialize<ApiTokenAuth>(responseContent);
 
                     token = auth.token;
 
@@ -103,7 +103,7 @@ namespace RobinhoodDataUtility
                 {
                     var jss = new JavaScriptSerializer();
 
-                    Wrappers.Orders orders = jss.Deserialize<Wrappers.Orders>(responseContent);
+                    Orders orders = jss.Deserialize<Orders>(responseContent);
 
 
                     Console.WriteLine(orders.results.ToString());
@@ -121,7 +121,7 @@ namespace RobinhoodDataUtility
 
                     s += "\n";
 
-                    foreach (Wrappers.Result order in orders.results)
+                    foreach (Result order in orders.results)
                     {
                         Type t = order.GetType();
                         PropertyInfo[] pi = t.GetProperties();
@@ -141,7 +141,7 @@ namespace RobinhoodDataUtility
 
                     MessageBox.Show("file saved!");
                 }
-                catch (Exception e)
+                catch
                 {
                     MessageBox.Show("Problem getting orders: " + responseContent);
                 }
