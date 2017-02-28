@@ -66,7 +66,7 @@ namespace RobinhoodDataUtility
                     lblStatus.Content = "Logged in!";
                     
                 }
-                catch (Exception e)
+                catch
                 {
                     MessageBox.Show("Problem logging in: " + responseContent);
                 }
