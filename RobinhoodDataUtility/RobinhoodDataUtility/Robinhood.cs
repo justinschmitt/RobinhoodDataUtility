@@ -1,13 +1,8 @@
 ﻿using Newtonsoft.Json;
-using RobinhoodDataUtility;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using System.Web.Script.Serialization;
-using System.Windows;
 
 namespace RobinhoodDataUtility
 {
@@ -41,8 +36,7 @@ namespace RobinhoodDataUtility
 
                 try
                 {
-                    var jss = new JavaScriptSerializer();
-                    Wrappers.ApiTokenAuth auth = jss.Deserialize<Wrappers.ApiTokenAuth>(loginResponse);
+                    Wrappers.ApiTokenAuth auth = JsonConvert.DeserializeObject<Wrappers.ApiTokenAuth>(loginResponse);
                     token = auth.token;
                 }
                 catch
