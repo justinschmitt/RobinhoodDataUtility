@@ -5,15 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RobinhoodDataUtility"
         mc:Ignorable="d"
-        Title="Robinhood Data Utility" Height="350" Width="310" ResizeMode="NoResize" WindowStyle="ToolWindow">
+        Title="Robinhood Data Utility" Height="231" Width="319" ResizeMode="NoResize">
     <Grid Margin="0,0,0,0">
-        <PasswordBox x:Name="pbPassword" HorizontalAlignment="Left" Margin="81,43,0,0" VerticalAlignment="Top" Width="120" Height="20" KeyboardNavigation.TabIndex="1"/>
-        <TextBox x:Name="tbUsername" HorizontalAlignment="Left" Height="20" Margin="81,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyboardNavigation.TabIndex="0"/>
-        <Label x:Name="lblUsername" Content="Username:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="29"/>
-        <Label x:Name="lblPassword" Content="Password:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,39,0,0" Height="29"/>
-        <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="215,43,0,0" VerticalAlignment="Top" Width="75" Click="btnLogin_Click" KeyboardNavigation.TabIndex="2" KeyboardNavigation.AcceptsReturn="True"/>
-        <Label x:Name="lblStatus" Content="Please Login" HorizontalAlignment="Left" Margin="0,73,0,0" VerticalAlignment="Top" Width="300" FontSize="10" BorderThickness="1" Background="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}"/>
-        <Button x:Name="btnExportOrders" Content="Export Orders" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="100" Click="btnExportOrders_Click" KeyboardNavigation.TabIndex="3"/>
+        <StatusBar HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="304">
+            <StatusBarItem HorizontalAlignment="Center">
+                <TextBlock x:Name="tbStatus" Text="Please Login"/>
+            </StatusBarItem>
+        </StatusBar>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="156" Margin="10,27,0,0" VerticalAlignment="Top" Width="285">
+            <TabItem Header="Login" Name="LoginTab">
+                <Grid Background="#FFE5E5E5">
+                    <PasswordBox x:Name="pbPassword" HorizontalAlignment="Left" Margin="81,40,0,0" VerticalAlignment="Top" Width="188" Height="25" KeyboardNavigation.TabIndex="1"/>
+                    <TextBox x:Name="tbUsername" HorizontalAlignment="Left" Height="25" Margin="81,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" KeyboardNavigation.TabIndex="0"/>
+                    <Label x:Name="lblUsername" Content="Username:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="25"/>
+                    <Label x:Name="lblPassword" Content="Password:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,40,0,0" Height="25"/>
+                    <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="81,70,0,0" VerticalAlignment="Top" Width="75" Click="btnLogin_Click" KeyboardNavigation.TabIndex="2" KeyboardNavigation.AcceptsReturn="True"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Tools" Name="ToolTab" IsEnabled="False">
+                <Grid Background="#FFE5E5E5">
+                    <Button x:Name="btnExportOrders" Content="Export Orders" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Click="btnExportOrders_Click" KeyboardNavigation.TabIndex="3"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>
