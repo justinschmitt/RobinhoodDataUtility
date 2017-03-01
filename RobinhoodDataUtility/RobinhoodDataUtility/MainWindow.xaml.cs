@@ -50,7 +50,7 @@ namespace RobinhoodDataUtility
         public async void GetOrders()
         {
 
-            Wrappers.Orders orders = JsonConvert.DeserializeObject<Wrappers.Orders>(await connection.GetEndpoint("orders"));
+            Orders orders = JsonConvert.DeserializeObject<Orders>(await connection.GetEndpoint("orders"));
 
             tbStatus.Text = "Got Orders!";
 
@@ -66,7 +66,7 @@ namespace RobinhoodDataUtility
 
             s += "\n";
 
-            foreach (Wrappers.Result order in orders.results)
+            foreach (Result order in orders.results)
             {
                 Type t = order.GetType();
                 PropertyInfo[] pi = t.GetProperties();

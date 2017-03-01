@@ -36,7 +36,7 @@ namespace RobinhoodDataUtility
 
                 try
                 {
-                    Wrappers.ApiTokenAuth auth = JsonConvert.DeserializeObject<Wrappers.ApiTokenAuth>(loginResponse);
+                    ApiTokenAuth auth = JsonConvert.DeserializeObject<ApiTokenAuth>(loginResponse);
                     token = auth.token;
                 }
                 catch
