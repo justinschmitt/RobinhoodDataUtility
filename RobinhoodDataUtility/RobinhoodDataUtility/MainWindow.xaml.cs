@@ -3,6 +3,10 @@ using System.Windows;
 using System.Reflection;
 using System.IO;
 using Newtonsoft.Json;
+using System.Windows.Controls;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 
 namespace RobinhoodDataUtility
 {
@@ -85,6 +89,34 @@ namespace RobinhoodDataUtility
             }
 
             MessageBox.Show("file saved!");
+        }
+
+        private async void btnGetOrders_Click(object sender, RoutedEventArgs e)
+        {
+            Orders orders = JsonConvert.DeserializeObject<Orders>(await connection.GetEndpoint("orders"));
+
+            //resolve instruments into dictionary
+
+            IDictionary<string, Instrument> instrumentMap = new Dictionary<string, Instrument>();
+
+            foreach (Result order in orders.results)
+            {
+                if(!instrumentMap.ContainsKey(order.instrument))
+                {
+                    instrumentMap.Add(order.instrument, JsonConvert.DeserializeObject<Instrument>(await connection.GetEndpoint(order.instrument.Substring(order.instrument.LastIndexOf("instruments")))));
+                }
+            }
+
+            //iterate over orders to apply Instrument object
+
+            foreach (Result order in orders.results)
+            {
+                Instrument i = null;
+                instrumentMap.TryGetValue(order.instrument, out i);
+                order.Instrument = i;
+            }
+
+            dgExecutions.ItemsSource = orders.results;
         }
     }
 }

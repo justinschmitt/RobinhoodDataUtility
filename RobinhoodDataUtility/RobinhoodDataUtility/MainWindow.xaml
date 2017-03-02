@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RobinhoodDataUtility"
         mc:Ignorable="d"
-        Title="Robinhood Data Utility" Height="231" Width="319" ResizeMode="NoResize">
+        Title="Robinhood Data Utility" Height="436.5" Width="1005.5" ResizeMode="NoResize">
     <Grid Margin="0,0,0,0">
         <StatusBar HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="304">
             <StatusBarItem HorizontalAlignment="Center">
                 <TextBlock x:Name="tbStatus" Text="Please Login"/>
             </StatusBarItem>
         </StatusBar>
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="156" Margin="10,27,0,0" VerticalAlignment="Top" Width="285">
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="366" Margin="10,27,0,0" VerticalAlignment="Top" Width="974">
             <TabItem Header="Login" Name="LoginTab">
                 <Grid Background="#FFE5E5E5">
                     <PasswordBox x:Name="pbPassword" HorizontalAlignment="Left" Margin="81,40,0,0" VerticalAlignment="Top" Width="188" Height="25" KeyboardNavigation.TabIndex="1"/>
@@ -23,8 +23,14 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Tools" Name="ToolTab" IsEnabled="False">
-                <Grid Background="#FFE5E5E5">
+                <Grid Background="#FFE5E5E5" Margin="0,0,-2,-1">
                     <Button x:Name="btnExportOrders" Content="Export Orders" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Click="btnExportOrders_Click" KeyboardNavigation.TabIndex="3"/>
+                    <Button x:Name="btnGetOrders" Content="Get Orders Executions" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Width="136" KeyboardNavigation.TabIndex="4" Click="btnGetOrders_Click"/>
+                    <DataGrid x:Name="dgExecutions" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Height="294" Width="950">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=Instrument.symbol}" Header="Symbol" />
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </TabItem>
         </TabControl>
